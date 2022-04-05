@@ -1,0 +1,9 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+Component(componentAlias, "Label", "Technology", $descr="Optional Description")
+Component_Ext(componentExtAlias, "Label", "Technology", $descr="Optional Description")
+ComponentDb(componentDbAlias, "Label", "Technology", $descr="Optional Description")
+ComponentDb_Ext(componentDbExtAlias, "Label", "Technology", $descr="Optional Description")
+ComponentQueue(componentQueueAlias, "Label", "Technology", $descr="Optional Description")
+ComponentQueue_Ext(componentQueueExtAlias, "Label", "Technology", $descr="Optional Description")
+@enduml

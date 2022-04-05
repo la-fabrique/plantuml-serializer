@@ -1,0 +1,15 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+System_Boundary(systemBoundaryAlias, "Label") {
+    Container(containerAlias1, "Label", "Technology", $descr="Optional Description")
+}
+Enterprise_Boundary(enterpriseBoundaryAlias, "Label") {
+    Container(containerAlias2, "Label", "Technology", $descr="Optional Description")
+}
+Boundary(boundaryAlias, "Label") {
+    Container(containerAlias3, "Label", "Technology", $descr="Optional Description")
+}
+Container_Boundary(containerBoundaryAlias, "Label") {
+    Container(containerAlias4, "Label", "Technology", $descr="Optional Description")
+}
+@enduml

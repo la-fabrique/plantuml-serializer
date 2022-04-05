@@ -1,0 +1,9 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+Container(containerAlias, "Label", "Technology", $descr="Optional Description")
+Container_Ext(containerExtAlias, "Label", "Technology", $descr="Optional Description")
+ContainerDb(containerDbAlias, "Label", "Technology", $descr="Optional Description")
+ContainerDb_Ext(containerDbExtAlias, "Label", "Technology", $descr="Optional Description")
+ContainerQueue(containerQueueAlias, "Label", "Technology", $descr="Optional Description")
+ContainerQueue_Ext(containerQueueExtAlias, "Label", "Technology", $descr="Optional Description")
+@enduml

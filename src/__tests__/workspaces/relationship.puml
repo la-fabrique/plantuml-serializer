@@ -1,0 +1,14 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+Person(personAlias, "User")
+Person(personAlias1, "User 1")
+Person(personAlias2, "User 2")
+Person(personAlias3, "User 3")
+System(systemAlias, "System")
+Rel(personAlias2, personAlias3, "informs", "courier", "Optional Description")
+Rel_L(personAlias, personAlias2, "informs", "courier", "Optional Description")
+Rel_R(personAlias, personAlias3, "informs", "courier", "Optional Description")
+Rel_U(personAlias, personAlias3, "informs", "courier", "Optional Description")
+Rel_R(personAlias1, systemAlias, "orders", "http", "Optional Description")
+Rel_D(personAlias, personAlias1, "requests", "async message", "Optional Description")
+@enduml

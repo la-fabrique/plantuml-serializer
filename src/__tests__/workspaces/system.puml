@@ -1,0 +1,9 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+System(systemAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+System_Ext(systemExtAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+SystemDb(systemDbAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+SystemDb_Ext(systemDbExtAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+SystemQueue(systemQueueAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+SystemQueue_Ext(systemQueueExtAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+@enduml

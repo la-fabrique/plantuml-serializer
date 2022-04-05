@@ -1,0 +1,61 @@
+import { Workspace, INCLUDE_C4_CONTEXT, Stdlib_C4_Context } from '@/types';
+
+export default {
+  includes: [INCLUDE_C4_CONTEXT],
+  elements: [
+    new Stdlib_C4_Context(
+      { source: 'Stdlib_C4', name: 'System' },
+      'systemAlias',
+      'Label',
+      'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
+    ),
+    new Stdlib_C4_Context(
+      { source: 'Stdlib_C4', name: 'System_Ext' },
+      'systemExtAlias',
+      'Label',
+      'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
+    ),
+    new Stdlib_C4_Context(
+      { source: 'Stdlib_C4', name: 'SystemDb' },
+      'systemDbAlias',
+      'Label',
+      'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
+    ),
+    new Stdlib_C4_Context(
+      { source: 'Stdlib_C4', name: 'SystemDb_Ext' },
+      'systemDbExtAlias',
+      'Label',
+      'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
+    ),
+    new Stdlib_C4_Context(
+      { source: 'Stdlib_C4', name: 'SystemQueue' },
+      'systemQueueAlias',
+      'Label',
+      'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
+    ),
+    new Stdlib_C4_Context(
+      { source: 'Stdlib_C4', name: 'SystemQueue_Ext' },
+      'systemQueueExtAlias',
+      'Label',
+      'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
+    ),
+  ],
+} as Workspace;
