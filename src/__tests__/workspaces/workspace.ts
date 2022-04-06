@@ -1,7 +1,7 @@
-import { INCLUDE_C4_CONTAINER, Workspace } from '@/types';
+import { C4_WORKSPACE_INCLUDE_CONTAINER, C4Workspace } from '@/types';
 
 export default {
-  title: 'Workspace Sample',
-  includes: [INCLUDE_C4_CONTAINER],
+  title: 'C4Workspace Sample',
+  includes: [C4_WORKSPACE_INCLUDE_CONTAINER],
   showLegend: true,
-} as Workspace;
+} as C4Workspace;

@@ -1,9 +1,14 @@
-import { Stdlib_C4_Context, Stdlib_C4_Rel, Stdlib_C4_Boundary } from './types';
 import {
-  Workspace,
+  C4Workspace,
   serializerOptions,
   UMLElement,
-  Stdlib_C4_Container_Component,
+  C4Person,
+  C4System,
+  C4Container,
+  C4Component,
+  C4Relationship,
+  C4Boundary,
+  C4_WORKSPACE_LAYOUT_TOP_DOWN,
 } from './types';
 
 function serializeElement(element: UMLElement, indent = 0): string[] {
@@ -16,28 +21,25 @@ function serializeElement(element: UMLElement, indent = 0): string[] {
   let alias1 = '';
   let alias2 = '';
   let tags = '';
-  let elementName = element.type_.name;
+  const elementName = element.type_;
 
-  if (element instanceof Stdlib_C4_Container_Component) {
+  if (element instanceof C4Container || element instanceof C4Component) {
     alias = element.alias || '';
     link = element.link ? `, $link="${element.link}"` : '';
     technology = element.technology ? `, "${element.technology}"` : '';
-    description = element.description
-      ? `, $descr="${element.description}"`
-      : '';
-  } else if (element instanceof Stdlib_C4_Context) {
+    description = element.description ? `, "${element.description}"` : '';
+  } else if (element instanceof C4Person || element instanceof C4System) {
     alias = element.alias || '';
     link = element.link ? `, $link="${element.link}"` : '';
     description = element.description ? `, "${element.description}"` : '';
-  } else if (element instanceof Stdlib_C4_Rel) {
-    elementName = `${elementName}${element.direction || ''}`;
+  } else if (element instanceof C4Relationship) {
     alias1 = `${element.alias1}`;
     alias2 = `, ${element.alias2}`;
     description = element.description ? `, "${element.description}"` : '';
     technology = element.technology ? `, "${element.technology}"` : '';
   }
 
-  if (element instanceof Stdlib_C4_Boundary) {
+  if (element instanceof C4Boundary) {
     alias = element.alias || '';
     tags = element.tags;
     lines.push(`${elementName}(${alias}${label}${tags}${link}) {`);
@@ -64,22 +66,26 @@ function indentString(txt: string, count = 1) {
 
 export default {
   serialize: (
-    workspace: Workspace,
+    workspace: C4Workspace,
     options: serializerOptions = {
       eol: '\n',
     },
   ): string => {
-    let lines = [
-      workspace.title ? `@startuml ${workspace.title}` : '@startuml',
-    ];
+    let lines = ['@startuml'];
     workspace.includes.forEach((include) => {
       lines.push(include);
     });
+    if (workspace.title) {
+      lines.push(`title ${workspace.title}`);
+    }
     workspace.elements?.forEach((e) => {
       lines = lines.concat(serializeElement(e));
     });
+    if (workspace.layout) {
+      lines.push(workspace.layout || C4_WORKSPACE_LAYOUT_TOP_DOWN);
+    }
     if (workspace.showLegend) {
-      lines.push('LAYOUT_WITH_LEGEND()');
+      lines.push('SHOW_LEGEND()');
     }
     lines.push('@enduml');
     return lines.join(options.eol);

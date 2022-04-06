@@ -1,20 +1,24 @@
-export const INCLUDE_C4_CONTAINER =
+export const C4_WORKSPACE_INCLUDE_CONTAINER =
   '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml';
-export const INCLUDE_C4_CONTEXT =
+export const C4_WORKSPACE_INCLUDE_CONTEXT =
   '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml';
-export const INCLUDE_C4_COMPONENT =
+export const C4_WORKSPACE_INCLUDE_COMPONENT =
   '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml';
+export const C4_WORKSPACE_LAYOUT_TOP_DOWN = 'LAYOUT_TOP_DOWN()';
+export const C4_WORKSPACE_LAYOUT_LEFT_RIGHT = 'LAYOUT_LEFT_RIGHT()';
+export const C4_WORKSPACE_LAYOUT_LANDSCAPE = 'LAYOUT_LANDSCAPE()';
 
-export type WorkspaceInclude =
-  | typeof INCLUDE_C4_CONTEXT
-  | typeof INCLUDE_C4_CONTAINER
-  | typeof INCLUDE_C4_COMPONENT;
+export type C4WorkspaceInclude =
+  | typeof C4_WORKSPACE_INCLUDE_CONTEXT
+  | typeof C4_WORKSPACE_INCLUDE_CONTAINER
+  | typeof C4_WORKSPACE_INCLUDE_COMPONENT;
 
-export type Workspace = {
+export type C4Workspace = {
   title?: string;
-  includes: Array<WorkspaceInclude>;
+  includes: Array<C4WorkspaceInclude>;
   elements: Array<UMLElement>;
   showLegend?: boolean;
+  layout: C4Layout;
 };
 
 const EOL_L = '\n';
@@ -27,50 +31,71 @@ export interface serializerOptions {
 }
 
 // from https://github.com/Enteee/plantuml-parser
-export type Stdlib_C4_Context_Type =
-  | 'Person'
-  | 'Person_Ext'
+export type C4SystemType =
   | 'System'
   | 'System_Ext'
   | 'SystemDb'
   | 'SystemQueue'
   | 'SystemDb_Ext'
   | 'SystemQueue_Ext';
-
-export class Stdlib_C4_Context {
-  constructor(
-    public type_: { source: string; name: Stdlib_C4_Context_Type },
-    public alias: string,
-    public label: string,
-    public description: string = '',
-    public sprite: string = '',
-    public tags: string = '',
-    public link: string = '',
-  ) {
-    this.description = description;
-    this.sprite = sprite;
-    this.tags = tags;
-    this.link = link;
-  }
-}
-
-export type Stdlib_C4_Container_Component_Type =
+export type C4PersonType = 'Person' | 'Person_Ext';
+export type C4ContainerType =
   | 'ContainerQueue_Ext'
   | 'ContainerQueue'
   | 'ContainerDb_Ext'
   | 'ContainerDb'
   | 'Container_Ext'
-  | 'Container'
+  | 'Container';
+export type C4ComponentType =
   | 'ComponentQueue_Ext'
   | 'ComponentQueue'
   | 'ComponentDb_Ext'
   | 'ComponentDb'
   | 'Component_Ext'
   | 'Component';
+export type C4BoundaryType =
+  | 'Boundary'
+  | 'Enterprise_Boundary'
+  | 'System_Boundary'
+  | 'Container_Boundary';
+export type C4RelationshipType =
+  | 'Rel'
+  | 'Rel_U'
+  | 'Rel_Up'
+  | 'Rel_D'
+  | 'Rel_Down'
+  | 'Rel_L'
+  | 'Rel_Left'
+  | 'Rel_R'
+  | 'Rel_Right'
+  | 'Rel_Back_Neighbor'
+  | 'Rel_Back'
+  | 'Rel_Neighbor'
+  | 'BiRel';
+export type C4Layout =
+  | typeof C4_WORKSPACE_LAYOUT_TOP_DOWN
+  | typeof C4_WORKSPACE_LAYOUT_LEFT_RIGHT
+  | typeof C4_WORKSPACE_LAYOUT_LANDSCAPE;
 
-export class Stdlib_C4_Container_Component {
+class C4ContextBase<T extends C4PersonType | C4SystemType> {
   constructor(
-    public type_: { source: string; name: Stdlib_C4_Container_Component_Type },
+    public type_: T,
+    public alias: string,
+    public label: string,
+    public description: string = '',
+    public sprite: string = '',
+    public tags: string = '',
+    public link: string = '',
+  ) {
+    this.description = description;
+    this.sprite = sprite;
+    this.tags = tags;
+    this.link = link;
+  }
+}
+class C4ContainerOrComponentBase<T extends C4ContainerType | C4ComponentType> {
+  constructor(
+    public type_: T,
     public alias: string,
     public label: string,
     public technology: string = '',
@@ -86,23 +111,17 @@ export class Stdlib_C4_Container_Component {
     this.link = link;
   }
 }
-export type C4_Rel_Direction =
-  | '_U'
-  | '_Up'
-  | '_D'
-  | '_Down'
-  | '_L'
-  | '_Left'
-  | '_R'
-  | '_Right';
 
-export class Stdlib_C4_Rel {
+export class C4Person extends C4ContextBase<C4PersonType> {}
+export class C4System extends C4ContextBase<C4SystemType> {}
+export class C4Container extends C4ContainerOrComponentBase<C4ContainerType> {}
+export class C4Component extends C4ContainerOrComponentBase<C4ComponentType> {}
+export class C4Relationship {
   constructor(
-    public type_: { source: string; name: string },
+    public type_: C4RelationshipType,
     public alias1: string,
     public alias2: string,
     public label: string,
-    public direction?: C4_Rel_Direction,
     public technology: string = '',
     public description: string = '',
   ) {
@@ -110,16 +129,9 @@ export class Stdlib_C4_Rel {
     this.description = description;
   }
 }
-
-export type Stdlib_C4_Boundary_Type =
-  | 'Boundary'
-  | 'Enterprise_Boundary'
-  | 'System_Boundary'
-  | 'Container_Boundary';
-
-export class Stdlib_C4_Boundary {
+export class C4Boundary {
   constructor(
-    public type_: { source: string; name: Stdlib_C4_Boundary_Type },
+    public type_: C4BoundaryType,
     public alias: string,
     public label: string,
     public tags: string = '',
@@ -132,7 +144,9 @@ export class Stdlib_C4_Boundary {
 }
 
 export type UMLElement =
-  | Stdlib_C4_Context
-  | Stdlib_C4_Container_Component
-  | Stdlib_C4_Boundary
-  | Stdlib_C4_Rel;
+  | C4Person
+  | C4System
+  | C4Container
+  | C4Component
+  | C4Boundary
+  | C4Relationship;

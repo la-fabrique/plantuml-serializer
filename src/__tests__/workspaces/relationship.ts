@@ -1,91 +1,66 @@
 import {
-  Workspace,
-  Stdlib_C4_Context,
-  INCLUDE_C4_CONTEXT,
-  Stdlib_C4_Rel,
+  C4Workspace,
+  C4Person,
+  C4System,
+  C4_WORKSPACE_INCLUDE_CONTEXT,
+  C4Relationship,
 } from '@/types';
 
 export default {
-  includes: [INCLUDE_C4_CONTEXT],
+  includes: [C4_WORKSPACE_INCLUDE_CONTEXT],
   elements: [
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'Person' },
-      'personAlias',
-      'User',
-    ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'Person' },
-      'personAlias1',
-      'User 1',
-    ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'Person' },
-      'personAlias2',
-      'User 2',
-    ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'Person' },
-      'personAlias3',
-      'User 3',
-    ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'System' },
-      'systemAlias',
-      'System',
-    ),
-    new Stdlib_C4_Rel(
-      { source: 'Stdlib_C4', name: 'Rel' },
+    new C4Person('Person', 'personAlias', 'User'),
+    new C4Person('Person', 'personAlias1', 'User 1'),
+    new C4Person('Person', 'personAlias2', 'User 2'),
+    new C4Person('Person', 'personAlias3', 'User 3'),
+    new C4System('System', 'systemAlias', 'System'),
+    new C4Relationship(
+      'Rel',
       'personAlias2',
       'personAlias3',
       'informs',
-      undefined,
       'courier',
       'Optional Description',
     ),
-    new Stdlib_C4_Rel(
-      { source: 'Stdlib_C4', name: 'Rel' },
+    new C4Relationship(
+      'Rel_L',
       'personAlias',
       'personAlias2',
       'informs',
-      '_L',
       'courier',
       'Optional Description',
     ),
-    new Stdlib_C4_Rel(
-      { source: 'Stdlib_C4', name: 'Rel' },
+    new C4Relationship(
+      'Rel_R',
       'personAlias',
       'personAlias3',
       'informs',
-      '_R',
       'courier',
       'Optional Description',
     ),
-    new Stdlib_C4_Rel(
-      { source: 'Stdlib_C4', name: 'Rel' },
+    new C4Relationship(
+      'Rel_U',
       'personAlias',
       'personAlias3',
       'informs',
-      '_U',
       'courier',
       'Optional Description',
     ),
-    new Stdlib_C4_Rel(
-      { source: 'Stdlib_C4', name: 'Rel' },
+    new C4Relationship(
+      'Rel_R',
       'personAlias1',
       'systemAlias',
       'orders',
-      '_R',
       'http',
       'Optional Description',
     ),
-    new Stdlib_C4_Rel(
-      { source: 'Stdlib_C4', name: 'Rel' },
+    new C4Relationship(
+      'Rel_D',
       'personAlias',
       'personAlias1',
       'requests',
-      '_D',
       'async message',
       'Optional Description',
     ),
   ],
-} as Workspace;
+} as C4Workspace;

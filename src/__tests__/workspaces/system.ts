@@ -1,10 +1,10 @@
-import { Workspace, INCLUDE_C4_CONTEXT, Stdlib_C4_Context } from '@/types';
+import { C4Workspace, C4_WORKSPACE_INCLUDE_CONTEXT, C4System } from '@/types';
 
 export default {
-  includes: [INCLUDE_C4_CONTEXT],
+  includes: [C4_WORKSPACE_INCLUDE_CONTEXT],
   elements: [
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'System' },
+    new C4System(
+      'System',
       'systemAlias',
       'Label',
       'Optional Description',
@@ -12,8 +12,8 @@ export default {
       undefined,
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'System_Ext' },
+    new C4System(
+      'System_Ext',
       'systemExtAlias',
       'Label',
       'Optional Description',
@@ -21,8 +21,8 @@ export default {
       undefined,
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'SystemDb' },
+    new C4System(
+      'SystemDb',
       'systemDbAlias',
       'Label',
       'Optional Description',
@@ -30,8 +30,8 @@ export default {
       undefined,
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'SystemDb_Ext' },
+    new C4System(
+      'SystemDb_Ext',
       'systemDbExtAlias',
       'Label',
       'Optional Description',
@@ -39,8 +39,8 @@ export default {
       undefined,
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'SystemQueue' },
+    new C4System(
+      'SystemQueue',
       'systemQueueAlias',
       'Label',
       'Optional Description',
@@ -48,8 +48,8 @@ export default {
       undefined,
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
-    new Stdlib_C4_Context(
-      { source: 'Stdlib_C4', name: 'SystemQueue_Ext' },
+    new C4System(
+      'SystemQueue_Ext',
       'systemQueueExtAlias',
       'Label',
       'Optional Description',
@@ -58,4 +58,4 @@ export default {
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
   ],
-} as Workspace;
+} as C4Workspace;

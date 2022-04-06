@@ -1,5 +1,6 @@
-@startuml Workspace Person
+@startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+title C4Workspace Person
 Person(personAlias, "Label", "Optional Description")
 Person_Ext(personExtAlias, "Label", "Optional Description")
 @enduml

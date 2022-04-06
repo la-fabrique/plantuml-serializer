@@ -7,7 +7,9 @@ import container from './workspaces/container';
 import component from './workspaces/component';
 import relationship from './workspaces/relationship';
 import boundary from './workspaces/boundary';
-
+import C4ComponentDiagramBigbank from './bigbank/C4ComponentDiagramBigbank';
+import C4ContainerDiagramBigbank from './bigbank/C4ContainerDiagramBigbank';
+import C4ContextDiagramBigbank from './bigbank/C4ContextDiagramBigbank';
 describe('GIVEN serializer', () => {
   test('WHEN serialize workspace.ts THEN match workspace.puml', () => {
     ExpectStringMatching(
@@ -49,6 +51,24 @@ describe('GIVEN serializer', () => {
     ExpectStringMatching(
       path.resolve(__dirname, 'workspaces', 'boundary.puml'),
       boundary,
+    );
+  });
+  test('WHEN serialize C4ComponentDiagramBigbank.ts THEN match C4ComponentDiagramBigbank.puml', () => {
+    ExpectStringMatching(
+      path.resolve(__dirname, 'bigbank', 'C4ComponentDiagramBigbank.puml'),
+      C4ComponentDiagramBigbank,
+    );
+  });
+  test('WHEN serialize C4ContainerDiagramBigbank.ts THEN match C4ContainerDiagramBigbank.puml', () => {
+    ExpectStringMatching(
+      path.resolve(__dirname, 'bigbank', 'C4ContainerDiagramBigbank.puml'),
+      C4ContainerDiagramBigbank,
+    );
+  });
+  test('WHEN serialize C4ContextDiagramBigbank.ts THEN match C4ContextDiagramBigbank.puml', () => {
+    ExpectStringMatching(
+      path.resolve(__dirname, 'bigbank', 'C4ContextDiagramBigbank.puml'),
+      C4ContextDiagramBigbank,
     );
   });
 });

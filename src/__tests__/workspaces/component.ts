@@ -1,53 +1,53 @@
 import {
-  Workspace,
-  INCLUDE_C4_COMPONENT,
-  Stdlib_C4_Container_Component,
+  C4Workspace,
+  C4_WORKSPACE_INCLUDE_COMPONENT,
+  C4Component,
 } from '@/types';
 
 export default {
-  includes: [INCLUDE_C4_COMPONENT],
+  includes: [C4_WORKSPACE_INCLUDE_COMPONENT],
   elements: [
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'Component' },
+    new C4Component(
+      'Component',
       'componentAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'Component_Ext' },
+    new C4Component(
+      'Component_Ext',
       'componentExtAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ComponentDb' },
+    new C4Component(
+      'ComponentDb',
       'componentDbAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ComponentDb_Ext' },
+    new C4Component(
+      'ComponentDb_Ext',
       'componentDbExtAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ComponentQueue' },
+    new C4Component(
+      'ComponentQueue',
       'componentQueueAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ComponentQueue_Ext' },
+    new C4Component(
+      'ComponentQueue_Ext',
       'componentQueueExtAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
   ],
-} as Workspace;
+} as C4Workspace;

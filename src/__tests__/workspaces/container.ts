@@ -1,53 +1,53 @@
 import {
-  Workspace,
-  INCLUDE_C4_CONTAINER,
-  Stdlib_C4_Container_Component,
+  C4Workspace,
+  C4_WORKSPACE_INCLUDE_CONTAINER,
+  C4Container,
 } from '@/types';
 
 export default {
-  includes: [INCLUDE_C4_CONTAINER],
+  includes: [C4_WORKSPACE_INCLUDE_CONTAINER],
   elements: [
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'Container' },
+    new C4Container(
+      'Container',
       'containerAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'Container_Ext' },
+    new C4Container(
+      'Container_Ext',
       'containerExtAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ContainerDb' },
+    new C4Container(
+      'ContainerDb',
       'containerDbAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ContainerDb_Ext' },
+    new C4Container(
+      'ContainerDb_Ext',
       'containerDbExtAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ContainerQueue' },
+    new C4Container(
+      'ContainerQueue',
       'containerQueueAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
-    new Stdlib_C4_Container_Component(
-      { source: 'Stdlib_C4', name: 'ContainerQueue_Ext' },
+    new C4Container(
+      'ContainerQueue_Ext',
       'containerQueueExtAlias',
       'Label',
       'Technology',
       'Optional Description',
     ),
   ],
-} as Workspace;
+} as C4Workspace;
