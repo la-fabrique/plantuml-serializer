@@ -8,3 +8,4 @@ Naive implementation of a serializer for plantuml
 
 Inspired by
 [plantuml-parser](https://github.com/Enteee/plantuml-parser)
+

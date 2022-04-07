@@ -1,16 +1,16 @@
 {
   "name": "plantuml-serializer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "plantuml-serializer",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "lint": "eslint ./src --ext .ts"
+    "lint": "eslint ./src --ext .ts --fix"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Deka",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.18.0",

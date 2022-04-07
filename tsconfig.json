@@ -10,13 +10,12 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "outDir": "dist",
+    "declaration": true,
     "paths": {
       "@/*": ["./src/*"]
     },
     "lib": ["esnext", "dom"]
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["src/**/*"]
 }
