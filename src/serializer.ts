@@ -10,6 +10,14 @@ import {
   C4Boundary,
   C4_WORKSPACE_LAYOUT_TOP_DOWN,
 } from './types';
+import {
+  isC4Boundary,
+  isC4Component,
+  isC4Container,
+  isC4Person,
+  isC4Relationship,
+  isC4System,
+} from './types.guard';
 
 function serializeElement(element: UMLElement, indent = 0): string[] {
   let lines = [] as Array<string>;
@@ -23,21 +31,21 @@ function serializeElement(element: UMLElement, indent = 0): string[] {
   let from = '';
   let to = '';
 
-  if (element instanceof C4Container || element instanceof C4Component) {
+  if (isC4Container(element) || isC4Component(element)) {
     alias = element.alias || '';
     technology = element.technology ? `, "${element.technology}"` : '';
     description = element.description ? `, "${element.description}"` : '';
-  } else if (element instanceof C4Person || element instanceof C4System) {
+  } else if (isC4Person(element) || isC4System(element)) {
     alias = element.alias || '';
     description = element.description ? `, "${element.description}"` : '';
-  } else if (element instanceof C4Relationship) {
+  } else if (isC4Relationship(element)) {
     from = `${element.from}`;
     to = `, ${element.to}`;
     description = element.description ? `, "${element.description}"` : '';
     technology = element.technology ? `, "${element.technology}"` : '';
   }
 
-  if (element instanceof C4Boundary) {
+  if (isC4Boundary(element)) {
     alias = element.alias || '';
     lines.push(`${elementName}(${alias}${label}${tags}${link}) {`);
     element.elements.forEach((e) => {

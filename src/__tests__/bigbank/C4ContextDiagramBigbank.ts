@@ -1,5 +1,4 @@
 import {
-  C4Container,
   C4Person,
   C4_WORKSPACE_INCLUDE_CONTEXT,
   C4Workspace,

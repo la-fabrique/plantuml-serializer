@@ -27,7 +27,7 @@ const EOL_RN = '\r\n';
 export type EOL = typeof EOL_L | typeof EOL_RN;
 
 export interface serializerOptions {
-  eol: EOL;
+  eol: EOL | string;
 }
 
 // from https://github.com/Enteee/plantuml-parser
