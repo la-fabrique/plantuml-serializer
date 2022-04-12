@@ -2,7 +2,7 @@ import {
   C4Workspace,
   C4_WORKSPACE_INCLUDE_COMPONENT,
   C4Component,
-} from '@/types';
+} from '@/index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_COMPONENT],

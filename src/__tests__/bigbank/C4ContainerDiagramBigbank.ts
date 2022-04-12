@@ -6,7 +6,7 @@ import {
   C4System,
   C4Boundary,
   C4Relationship,
-} from '@/types';
+} from '@/index';
 
 export default {
   title: 'Container diagram for Internet Banking System',

@@ -119,11 +119,14 @@ export class C4Component extends C4ContainerOrComponentBase<C4ComponentType> {}
 export class C4Relationship {
   constructor(
     public type_: C4RelationshipType,
-    public alias1: string,
-    public alias2: string,
+    public from: string,
+    public to: string,
     public label: string,
     public technology: string = '',
     public description: string = '',
+    public sprite: string = '',
+    public tags: string = '',
+    public link: string = '',
   ) {
     this.technology = technology;
     this.description = description;

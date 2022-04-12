@@ -14,34 +14,31 @@ import {
 function serializeElement(element: UMLElement, indent = 0): string[] {
   let lines = [] as Array<string>;
   const label = element.label ? `, "${element.label}"` : '';
+  const link = element.link ? `, $link="${element.link}"` : '';
+  const tags = element.tags || '';
+  const elementName = element.type_;
   let technology = '';
   let description = '';
-  let link = '';
   let alias = '';
-  let alias1 = '';
-  let alias2 = '';
-  let tags = '';
-  const elementName = element.type_;
+  let from = '';
+  let to = '';
 
   if (element instanceof C4Container || element instanceof C4Component) {
     alias = element.alias || '';
-    link = element.link ? `, $link="${element.link}"` : '';
     technology = element.technology ? `, "${element.technology}"` : '';
     description = element.description ? `, "${element.description}"` : '';
   } else if (element instanceof C4Person || element instanceof C4System) {
     alias = element.alias || '';
-    link = element.link ? `, $link="${element.link}"` : '';
     description = element.description ? `, "${element.description}"` : '';
   } else if (element instanceof C4Relationship) {
-    alias1 = `${element.alias1}`;
-    alias2 = `, ${element.alias2}`;
+    from = `${element.from}`;
+    to = `, ${element.to}`;
     description = element.description ? `, "${element.description}"` : '';
     technology = element.technology ? `, "${element.technology}"` : '';
   }
 
   if (element instanceof C4Boundary) {
     alias = element.alias || '';
-    tags = element.tags;
     lines.push(`${elementName}(${alias}${label}${tags}${link}) {`);
     element.elements.forEach((e) => {
       lines = lines.concat(serializeElement(e, indent + 1));
@@ -50,7 +47,7 @@ function serializeElement(element: UMLElement, indent = 0): string[] {
   } else {
     lines.push(
       indentString(
-        `${elementName}(${alias}${alias1}${alias2}${label}${technology}${description}${link})`,
+        `${elementName}(${alias}${from}${to}${label}${technology}${description}${link})`,
         indent,
       ),
     );

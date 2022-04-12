@@ -4,7 +4,7 @@ import {
   C4System,
   C4_WORKSPACE_INCLUDE_CONTEXT,
   C4Relationship,
-} from '@/types';
+} from '@/index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_CONTEXT],
@@ -21,6 +21,9 @@ export default {
       'informs',
       'courier',
       'Optional Description',
+      undefined,
+      undefined,
+      'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
     new C4Relationship(
       'Rel_L',

@@ -1,4 +1,4 @@
-import { C4Workspace, C4_WORKSPACE_INCLUDE_CONTEXT, C4System } from '@/types';
+import { C4Workspace, C4_WORKSPACE_INCLUDE_CONTEXT, C4System } from '@/index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_CONTEXT],

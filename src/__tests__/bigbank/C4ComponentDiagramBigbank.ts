@@ -6,7 +6,7 @@ import {
   C4Boundary,
   C4Component,
   C4Relationship,
-} from '@/types';
+} from '@/index';
 
 export default {
   title: 'Component diagram for Internet Banking System - API Application',

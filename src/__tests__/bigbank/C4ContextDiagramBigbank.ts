@@ -7,7 +7,7 @@ import {
   C4Boundary,
   C4Relationship,
   C4_WORKSPACE_LAYOUT_LANDSCAPE,
-} from '@/types';
+} from '@/index';
 
 export default {
   title: 'System Landscape diagram for Big Bank plc',

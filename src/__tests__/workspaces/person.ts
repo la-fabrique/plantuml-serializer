@@ -1,4 +1,4 @@
-import { C4Workspace, C4_WORKSPACE_INCLUDE_CONTAINER, C4Person } from '@/types';
+import { C4Workspace, C4_WORKSPACE_INCLUDE_CONTAINER, C4Person } from '@/index';
 
 export default {
   title: 'C4Workspace Person',

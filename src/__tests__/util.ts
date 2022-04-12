@@ -1,6 +1,6 @@
-import { C4Workspace } from '@/types';
+import { C4Workspace } from '@/index';
 import fs from 'fs';
-import serializer from '@/serializer';
+import serializer from '@/index';
 
 export function ExpectStringMatching(pumlFile: string, workspace: C4Workspace) {
   const buffer = fs.readFileSync(pumlFile);

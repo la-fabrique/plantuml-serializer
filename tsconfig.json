@@ -8,6 +8,7 @@
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
+    "outDir": "dist/",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "paths": {
@@ -15,8 +16,5 @@
     },
     "lib": ["esnext", "dom"]
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
