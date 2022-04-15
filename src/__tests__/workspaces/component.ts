@@ -13,6 +13,8 @@ export default {
       'Label',
       'Technology',
       'Optional Description',
+      undefined, 
+      "v1.0"      
     ),
     new C4Component(
       'Component_Ext',

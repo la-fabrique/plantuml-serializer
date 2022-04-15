@@ -54,7 +54,7 @@ export default {
       'Label',
       'Optional Description',
       undefined,
-      undefined,
+      "v1.0",
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
   ],

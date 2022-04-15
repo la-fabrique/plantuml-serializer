@@ -5,5 +5,5 @@ System_Ext(systemExtAlias, "Label", "Optional Description", $link="https://githu
 SystemDb(systemDbAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
 SystemDb_Ext(systemDbExtAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
 SystemQueue(systemQueueAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
-SystemQueue_Ext(systemQueueExtAlias, "Label", "Optional Description", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+SystemQueue_Ext(systemQueueExtAlias, "Label", "Optional Description", $tags="v1.0", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
 @enduml

@@ -23,7 +23,7 @@ function serializeElement(element: UMLElement, indent = 0): string[] {
   let lines = [] as Array<string>;
   const label = element.label ? `, "${element.label}"` : '';
   const link = element.link ? `, $link="${element.link}"` : '';
-  const tags = element.tags || '';
+  const tags = element.tags ? `, $tags="${element.tags}"` : '';
   const elementName = element.type_;
   let technology = '';
   let description = '';
@@ -55,7 +55,7 @@ function serializeElement(element: UMLElement, indent = 0): string[] {
   } else {
     lines.push(
       indentString(
-        `${elementName}(${alias}${from}${to}${label}${technology}${description}${link})`,
+        `${elementName}(${alias}${from}${to}${label}${technology}${description}${tags}${link})`,
         indent,
       ),
     );

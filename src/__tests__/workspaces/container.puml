@@ -1,6 +1,6 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-Container(containerAlias, "Label", "Technology", "Optional Description")
+Container(containerAlias, "Label", "Technology", "Optional Description", $tags="v1.0")
 Container_Ext(containerExtAlias, "Label", "Technology", "Optional Description")
 ContainerDb(containerDbAlias, "Label", "Technology", "Optional Description")
 ContainerDb_Ext(containerDbExtAlias, "Label", "Technology", "Optional Description")
