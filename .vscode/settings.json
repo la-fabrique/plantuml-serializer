@@ -1,5 +1,4 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.eol": "\r\n"
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

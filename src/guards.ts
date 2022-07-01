@@ -1,12 +1,12 @@
-import {
-  C4Boundary,
-  C4Component,
+import type { UMLElement } from './types';
+import type {
   C4Container,
-  C4Person,
-  C4Relationship,
+  C4Component,
   C4System,
-  UMLElement,
-} from './types';
+  C4Boundary,
+  C4Relationship,
+  C4Person,
+} from './umlElements';
 
 export const isC4Container = (element: UMLElement): element is C4Container =>
   [

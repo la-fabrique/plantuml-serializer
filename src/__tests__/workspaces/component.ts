@@ -2,7 +2,7 @@ import {
   C4Workspace,
   C4_WORKSPACE_INCLUDE_COMPONENT,
   C4Component,
-} from '@/index';
+} from '../../index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_COMPONENT],
@@ -13,8 +13,8 @@ export default {
       'Label',
       'Technology',
       'Optional Description',
-      undefined, 
-      "v1.0"      
+      undefined,
+      'v1.0',
     ),
     new C4Component(
       'Component_Ext',

@@ -3,7 +3,7 @@ import {
   C4Container,
   C4_WORKSPACE_INCLUDE_CONTAINER,
   C4Boundary,
-} from '@/index';
+} from '../../index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_CONTAINER],

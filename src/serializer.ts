@@ -1,15 +1,5 @@
-import {
-  C4Workspace,
-  serializerOptions,
-  UMLElement,
-  C4Person,
-  C4System,
-  C4Container,
-  C4Component,
-  C4Relationship,
-  C4Boundary,
-  C4_WORKSPACE_LAYOUT_TOP_DOWN,
-} from './types';
+import type { C4Workspace, serializerOptions, UMLElement } from './types';
+import { C4_WORKSPACE_LAYOUT_TOP_DOWN } from './constants';
 import {
   isC4Boundary,
   isC4Component,
@@ -17,7 +7,7 @@ import {
   isC4Person,
   isC4Relationship,
   isC4System,
-} from './types.guard';
+} from './guards';
 
 function serializeElement(element: UMLElement, indent = 0): string[] {
   let lines = [] as Array<string>;

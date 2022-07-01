@@ -1,12 +1,21 @@
-export const C4_WORKSPACE_INCLUDE_CONTAINER =
-  '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml';
-export const C4_WORKSPACE_INCLUDE_CONTEXT =
-  '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml';
-export const C4_WORKSPACE_INCLUDE_COMPONENT =
-  '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml';
-export const C4_WORKSPACE_LAYOUT_TOP_DOWN = 'LAYOUT_TOP_DOWN()';
-export const C4_WORKSPACE_LAYOUT_LEFT_RIGHT = 'LAYOUT_LEFT_RIGHT()';
-export const C4_WORKSPACE_LAYOUT_LANDSCAPE = 'LAYOUT_LANDSCAPE()';
+import type {
+  C4_WORKSPACE_INCLUDE_COMPONENT,
+  C4_WORKSPACE_INCLUDE_CONTAINER,
+  C4_WORKSPACE_INCLUDE_CONTEXT,
+  C4_WORKSPACE_LAYOUT_LANDSCAPE,
+  C4_WORKSPACE_LAYOUT_LEFT_RIGHT,
+  C4_WORKSPACE_LAYOUT_TOP_DOWN,
+  EOL_L,
+  EOL_RN,
+} from './constants';
+import type {
+  C4Boundary,
+  C4Component,
+  C4Container,
+  C4Person,
+  C4Relationship,
+  C4System,
+} from './umlElements';
 
 export type C4WorkspaceInclude =
   | typeof C4_WORKSPACE_INCLUDE_CONTEXT
@@ -20,9 +29,6 @@ export type C4Workspace = {
   showLegend?: boolean;
   layout: C4Layout;
 };
-
-const EOL_L = '\n';
-const EOL_RN = '\r\n';
 
 export type EOL = typeof EOL_L | typeof EOL_RN;
 
@@ -76,75 +82,6 @@ export type C4Layout =
   | typeof C4_WORKSPACE_LAYOUT_TOP_DOWN
   | typeof C4_WORKSPACE_LAYOUT_LEFT_RIGHT
   | typeof C4_WORKSPACE_LAYOUT_LANDSCAPE;
-
-class C4ContextBase<T extends C4PersonType | C4SystemType> {
-  constructor(
-    public type_: T,
-    public alias: string,
-    public label: string,
-    public description: string = '',
-    public sprite: string = '',
-    public tags: string = '',
-    public link: string = '',
-  ) {
-    this.description = description;
-    this.sprite = sprite;
-    this.tags = tags;
-    this.link = link;
-  }
-}
-class C4ContainerOrComponentBase<T extends C4ContainerType | C4ComponentType> {
-  constructor(
-    public type_: T,
-    public alias: string,
-    public label: string,
-    public technology: string = '',
-    public description: string = '',
-    public sprite: string = '',
-    public tags: string = '',
-    public link: string = '',
-  ) {
-    this.technology = technology;
-    this.description = description;
-    this.sprite = sprite;
-    this.tags = tags;
-    this.link = link;
-  }
-}
-
-export class C4Person extends C4ContextBase<C4PersonType> {}
-export class C4System extends C4ContextBase<C4SystemType> {}
-export class C4Container extends C4ContainerOrComponentBase<C4ContainerType> {}
-export class C4Component extends C4ContainerOrComponentBase<C4ComponentType> {}
-export class C4Relationship {
-  constructor(
-    public type_: C4RelationshipType,
-    public from: string,
-    public to: string,
-    public label: string,
-    public technology: string = '',
-    public description: string = '',
-    public sprite: string = '',
-    public tags: string = '',
-    public link: string = '',
-  ) {
-    this.technology = technology;
-    this.description = description;
-  }
-}
-export class C4Boundary {
-  constructor(
-    public type_: C4BoundaryType,
-    public alias: string,
-    public label: string,
-    public tags: string = '',
-    public link: string = '',
-    public elements: UMLElement[],
-  ) {
-    this.tags = tags;
-    this.link = link;
-  }
-}
 
 export type UMLElement =
   | C4Person

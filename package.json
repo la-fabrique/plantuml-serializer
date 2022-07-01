@@ -1,7 +1,8 @@
 {
   "name": "plantuml-serializer",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "description": "plantuml-serializer",
   "scripts": {
     "build": "tsc",
@@ -28,5 +29,8 @@
     "prettier": "^2.6.2",
     "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }

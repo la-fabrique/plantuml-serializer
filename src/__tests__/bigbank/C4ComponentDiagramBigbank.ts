@@ -1,12 +1,12 @@
 import {
   C4Container,
   C4_WORKSPACE_INCLUDE_COMPONENT,
-  C4Workspace,
+  type C4Workspace,
   C4System,
   C4Boundary,
   C4Component,
   C4Relationship,
-} from '@/index';
+} from '../../index';
 
 export default {
   title: 'Component diagram for Internet Banking System - API Application',

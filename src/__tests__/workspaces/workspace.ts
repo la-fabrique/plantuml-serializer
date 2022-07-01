@@ -1,4 +1,4 @@
-import { C4_WORKSPACE_INCLUDE_CONTAINER, C4Workspace } from '@/index';
+import { C4_WORKSPACE_INCLUDE_CONTAINER, C4Workspace } from '../../index';
 
 export default {
   title: 'C4Workspace Sample',

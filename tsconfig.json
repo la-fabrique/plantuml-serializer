@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "target": "esnext",
-    "useDefineForClassFields": true,
+    "target": "ESNext",
     "module": "esnext",
+
+    "noImplicitThis": true,
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
@@ -11,11 +11,15 @@
     "outDir": "dist/",
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "importsNotUsedAsValues": "error",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": false,
     "declaration": true,
     "paths": {
       "@/*": ["./src/*"]
     },
     "lib": ["esnext", "dom"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

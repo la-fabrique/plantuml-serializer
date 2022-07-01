@@ -2,7 +2,7 @@ import {
   C4Workspace,
   C4_WORKSPACE_INCLUDE_CONTAINER,
   C4Container,
-} from '@/index';
+} from '../../index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_CONTAINER],
@@ -13,8 +13,8 @@ export default {
       'Label',
       'Technology',
       'Optional Description',
-      undefined, 
-      "v1.0"
+      undefined,
+      'v1.0',
     ),
     new C4Container(
       'Container_Ext',

@@ -1,4 +1,8 @@
-import { C4Workspace, C4_WORKSPACE_INCLUDE_CONTEXT, C4System } from '@/index';
+import {
+  C4Workspace,
+  C4_WORKSPACE_INCLUDE_CONTEXT,
+  C4System,
+} from '../../index';
 
 export default {
   includes: [C4_WORKSPACE_INCLUDE_CONTEXT],
@@ -54,7 +58,7 @@ export default {
       'Label',
       'Optional Description',
       undefined,
-      "v1.0",
+      'v1.0',
       'https://github.com/plantuml-stdlib/C4-PlantUML',
     ),
   ],

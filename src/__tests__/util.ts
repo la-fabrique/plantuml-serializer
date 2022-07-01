@@ -1,6 +1,6 @@
-import { C4Workspace } from '@/index';
+import type { C4Workspace } from '../index';
 import fs from 'fs';
-import serializer from '@/index';
+import serializer from '../index';
 import { EOL } from 'os';
 
 export function ExpectStringMatching(pumlFile: string, workspace: C4Workspace) {
